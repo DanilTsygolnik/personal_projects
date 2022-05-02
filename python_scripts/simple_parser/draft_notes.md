@@ -1,27 +1,3 @@
-## Скрипт-парсер
-
-Использованные материалы:
-- https://www.freecodecamp.org/news/web-scraping-python-tutorial-how-to-scrape-data-from-a-website/
-- https://docs.python-guide.org/scenarios/scrape/
-
-Парсинг веб-страницы - [файл](html_parser.py)
-
-Варианты:
-- только URL, тогда веб-страница будет сохранена в файл "parse_result.html" (название по умолчанию);
-- строка вида `<url> -o <custom_name>`, тогда веб-страница будет сохранена в файл "custom_name.html";
-
-Если в название файла включить путь к существующей директории, файл будет создан в ней.
-
-## Bash-скрипт
-
-Bash-скрипт написал по материалам:
-- запись stdin в переменную -- по [статье](https://ryanstutorials.net/bash-scripting-tutorial/bash-input.php); 
-- итерация по строкам текстового файла -- по [статье](https://www.cyberciti.biz/faq/unix-howto-read-line-by-line-from-file/);
-- вызов python-скрипта внутри bash-скрипта --[ветка](https://stackoverflow.com/questions/4377109/shell-script-execute-a-python-program-from-within-a-shell-script) 
-
-Запуск осуществляется из директории со скриптами (bash и python):
-`cat urls.txt | bash parse_addresses.sh`
-
 ## Подготовка списка адресов страниц курса для загрузки
 
 [Код](extract_links.py)
@@ -37,3 +13,51 @@ Bash-скрипт написал по материалам:
 ```
 python extract_links.py /full/path/to/course_index.html /full/path/to/download_dir
 ```
+
+## Скрипт-парсер
+
+[Программа](html_parser.py) получает на вход строку с URL, сохраняет соответствующий html-файл на диск.
+
+Варианты использования:
+- только URL, тогда веб-страница будет сохранена в файл "parse_result.html" (название по умолчанию);
+- строка вида `<url> -o <custom_name>`, тогда веб-страница будет сохранена в файл "custom_name.html";
+
+Если в название файла включить путь к существующей директории, файл будет создан в ней.
+
+Использованные материалы:
+- https://www.freecodecamp.org/news/web-scraping-python-tutorial-how-to-scrape-data-from-a-website/
+- https://docs.python-guide.org/scenarios/scrape/
+
+## Bash-скрипт
+
+Построчно считывает данные подготовленного ранее файла `urls.txt`, для каждой строки производит вызов [скрипта-парсера](html_parser.py).
+
+Запуск осуществляется из директории со скриптами (bash и python):
+```bash
+cat urls.txt | bash parse_addresses.sh
+```
+
+Bash-скрипт написал по материалам:
+- запись stdin в переменную -- по [статье](https://ryanstutorials.net/bash-scripting-tutorial/bash-input.php); 
+- итерация по строкам текстового файла -- по [статье](https://www.cyberciti.biz/faq/unix-howto-read-line-by-line-from-file/);
+- вызов python-скрипта внутри bash-скрипта --[ветка](https://stackoverflow.com/questions/4377109/shell-script-execute-a-python-program-from-within-a-shell-script) 
+
+## Bash-скрипт v2
+
+TODO: Объединить подготовку файла `urls.txt` и загрузку html-страниц в одну команду вызова bash-скрипта.
+
+Т.е. объединить команды
+```
+python extract_links.py /full/path/to/course_index.html /full/path/to/download_dir
+cat urls.txt | bash parse_addresses.sh
+```
+в одну
+```
+# вариант через bash
+bash download_course.sh course_main_page_url /full/path/to/download_dir
+# вариант через python (вероятнее)
+python3 download_course.py course_main_page_url /full/path/to/download_dir
+```
+
+Для bash-скрипта может быть полезным:
+- передача переменных в python-скрипт из bash -- [пример](https://stackoverflow.com/a/71266282).
