@@ -1,3 +1,11 @@
+## Предварительные настройки
+
+Для работы скриптов требуются следующие пакеты:
+- [beautifulsoap4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-beautiful-soup);
+- [requests](https://docs.python-requests.org/en/latest/);
+
+Установка через с помощью `pip`, предпочтительно в отдельное виртуальное окружение.
+
 ## Подготовка списка адресов страниц курса для загрузки
 
 [Код](extract_links.py)
