@@ -21,3 +21,11 @@ Bash-скрипт написал по материалам:
 
 Запуск осуществляется из директории со скриптами (bash и python):
 `cat urls.txt | bash parse_addresses.sh`
+
+## Подготовка списка адресов страниц курса для загрузки
+
+[Код](extract_links.py)
+
+Использованные материалы:
+- найти все блоки `<a href>...</a>` и извлечь из каждого url -- [пример](https://stackoverflow.com/a/14470595);
+- найти блоки `<a href>...</a>` c определенным атрибутом -- [офф. доки](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all);
