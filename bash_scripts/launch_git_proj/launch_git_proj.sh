@@ -2,7 +2,7 @@
 git_projects_path="$HOME/Documents/current_work/programming/git_projects/"
 projects_list="$(ls -1 $git_projects_path)"
 message_templ=("You have the following programming projects:" $projects_list "Which one you want to work work with? Enter the name: ")
-message=$(printf '%s\n' "${message_templ[@]}")
+printf -v message '%s\n' "${message_templ[@]}"
 read -p $message project_name
 project_dir="$git_projects_path$project_name"
 # connect to github
