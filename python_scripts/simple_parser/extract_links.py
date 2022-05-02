@@ -17,3 +17,7 @@ with open(src_html_file) as fp:
         filename_with_num = "_".join([str(link_num), filename_for_topic])
         topics_filenames_list.append(filename_with_num)
         link_num += 1
+with open('urls.txt', 'w', encoding='utf-8') as file:
+    for url, filename in zip(urls_list, topics_filenames_list):
+        formatted_string = f'{url} -o {filename}\n'
+        file.write(formatted_string)
