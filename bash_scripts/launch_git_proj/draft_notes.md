@@ -21,3 +21,8 @@ Which one you want to work work with? Enter the name: <user enters the name>
 -[Append to variable](https://stackoverflow.com/questions/4181703/how-to-concatenate-string-variables-in-bash/18041780#18041780);
 - идея создать шаблон сообщения, как array `(part1 part2 part3)` -- [по примеру](https://stackoverflow.com/a/15566034); использование `printf` вместо `echo` оттуда же;
 - использование специальных символов (в частности `\n`) -- [по примеру](https://stackoverflow.com/a/3182519).
+
+---
+
+Возможно, пригодится для автозапуска
+`xfce4-terminal --geometry=100x30+1250+0 --execute bash -c 'echo " " | termdown'`
