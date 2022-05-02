@@ -1,10 +1,11 @@
 from bs4 import BeautifulSoup
+import sys
 
 
-src_html_file = str(input())
+src_html_path = sys.argv[1]
 urls_list = []
 topics_filenames_list = []
-with open(src_html_file) as fp:
+with open(src_html_path) as fp:
     soup = BeautifulSoup(fp, 'html.parser')
     a_blocks = soup.find_all('a', 'text-decoration-none link-dark me-2')
     link_num = 1
@@ -17,7 +18,8 @@ with open(src_html_file) as fp:
         filename_with_num = "_".join([str(link_num), filename_for_topic])
         topics_filenames_list.append(filename_with_num)
         link_num += 1
+html_output_path = sys.argv[2]
 with open('urls.txt', 'w', encoding='utf-8') as file:
     for url, filename in zip(urls_list, topics_filenames_list):
-        formatted_string = f'{url} -o {filename}\n'
+        formatted_string = f'{url} -o {html_output_path}{filename}\n'
         file.write(formatted_string)
