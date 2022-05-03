@@ -26,9 +26,10 @@ python extract_links.py /full/path/to/course_index.html /full/path/to/download_d
 
 [Программа](html_parser.py) получает на вход строку с URL, сохраняет соответствующий html-файл на диск.
 
-Варианты использования:
-- только URL, тогда веб-страница будет сохранена в файл "parse_result.html" (название по умолчанию);
-- строка вида `<url> -o <custom_name>`, тогда веб-страница будет сохранена в файл "custom_name.html";
+Использование:
+```
+echo "https://google.com /home/user/dir/google.html" | python3 html_parser.py
+```
 
 Если в название файла включить путь к существующей директории, файл будет создан в ней.
 

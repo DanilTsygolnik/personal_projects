@@ -18,8 +18,8 @@ with open(src_html_path) as fp:
         filename_with_num = "_".join([str(link_num), filename_for_topic])
         topics_filenames_list.append(filename_with_num)
         link_num += 1
-html_output_path = sys.argv[2]
+html_download_dir = sys.argv[2]
 with open('urls.txt', 'w', encoding='utf-8') as file:
     for url, filename in zip(urls_list, topics_filenames_list):
-        formatted_string = f'{url} -o {html_output_path}{filename}\n'
+        formatted_string = f'{url} {html_download_dir}/{filename}\n'
         file.write(formatted_string)
