@@ -51,27 +51,22 @@ Bash-скрипт написал по материалам:
 - итерация по строкам текстового файла -- по [статье](https://www.cyberciti.biz/faq/unix-howto-read-line-by-line-from-file/);
 - вызов python-скрипта внутри bash-скрипта --[ветка](https://stackoverflow.com/questions/4377109/shell-script-execute-a-python-program-from-within-a-shell-script) 
 
-## Bash-скрипт v2
+## Парсинг одной командой 
 
-TODO: Объединить подготовку файла `urls.txt` и загрузку html-страниц в одну команду вызова bash-скрипта.
-
-Т.е. объединить команды
+Использование:
 ```
-python extract_links.py /full/path/to/course_index.html /full/path/to/download_dir
-cat urls.txt | bash parse_addresses.sh
-```
-в одну
-```
-# вариант через bash
-bash download_course.sh course_main_page_url /full/path/to/download_dir
-# вариант через python (вероятнее)
+# option 1
 python3 download_course.py course_main_page_url /full/path/to/download_dir
+# option 2
+echo "course_main_page_url /full/path/to/download_dir" | python3 download_course.py
 ```
-
-Для bash-скрипта может быть полезным:
-- передача переменных в python-скрипт из bash -- [пример](https://stackoverflow.com/a/71266282).
-
----
 
 Использованные материалы:
 - правильная передача тела response в BeautifulSoap -- [пример](https://stackoverflow.com/a/39757879);
+
+---
+
+Прочите материалы
+
+Для bash-скрипта может быть полезным:
+- передача переменных в python-скрипт из bash -- [пример](https://stackoverflow.com/a/71266282).
