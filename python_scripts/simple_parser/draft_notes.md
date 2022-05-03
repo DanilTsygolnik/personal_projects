@@ -70,3 +70,8 @@ python3 download_course.py course_main_page_url /full/path/to/download_dir
 
 Для bash-скрипта может быть полезным:
 - передача переменных в python-скрипт из bash -- [пример](https://stackoverflow.com/a/71266282).
+
+---
+
+Использованные материалы:
+- правильная передача тела response в BeautifulSoap -- [пример](https://stackoverflow.com/a/39757879);
