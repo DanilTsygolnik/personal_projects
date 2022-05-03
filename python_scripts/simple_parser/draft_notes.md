@@ -68,6 +68,7 @@ echo "course_main_page_url /full/path/to/download_dir" | python3 download_course
 - использование `hashlib` в коде -- [пример](https://stackoverflow.com/a/59056837);
 - работа с `hashlib`: метод `encode()` на [примерах](https://www.atqed.com/python-hashlib);
 - присваивание значения переменных во время вычисления другого выражения (строка `while chunk := f.read(8192):`) -- [статья](https://medium.com/nuances-of-programming/%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0-%D0%B8-%D0%B7%D0%B0%D1%87%D0%B5%D0%BC-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%B2-python-d2e70bf85a40);
+- заменять все знаки, кроме букв и подчеркиваний, из текста для будущих названий файлов -- [пример](https://stackoverflow.com/a/875978);
 
 
 ## Загрузка нескольких курсов одной командой

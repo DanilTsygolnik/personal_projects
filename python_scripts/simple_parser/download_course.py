@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import hashlib
 import time
+import re
 
 
 # спарсить ссылки из index-файла по ссылке -- файл urls.txt на выходе
@@ -17,7 +18,7 @@ for link in a_blocks:
     relative_url = link.get('href')
     full_url = "".join(["https://ru.hexlet.io", relative_url])
     course_topics_urls.append(full_url)
-    topic = link.get_text()  # Example: "Большая сложная тема"
+    topic = re.sub(r'[^\w]', ' ', link.get_text())  # Example: "Большая сложная тема"
     filename_for_topic = "_".join(topic.split())   # Result: "Большая_сложная_тема"
     filename_with_num = "_".join([str(link_num), filename_for_topic])
     topics_filenames.append(filename_with_num)
