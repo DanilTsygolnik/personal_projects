@@ -6,7 +6,7 @@ import requests
 url = sys.argv[1]
 downloaded_html_full_path = sys.argv[2]  # example: /home/user/dir/webpage.html
 response = requests.get(url)
-md5_response = hashlib.md5(response.text)
+md5_response = hashlib.md5(response.text.encode())
 with open(downloaded_html_full_path, 'w') as f:
     f.write(response.text)
 with open(downloaded_html_full_path, "rb") as f:
