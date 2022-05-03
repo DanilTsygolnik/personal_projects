@@ -64,9 +64,18 @@ echo "course_main_page_url /full/path/to/download_dir" | python3 download_course
 Использованные материалы:
 - правильная передача тела response в BeautifulSoap -- [пример](https://stackoverflow.com/a/39757879);
 
----
+## Загрузка нескольких курсов одной командой
 
-Прочите материалы
+[Скрипт](download_several.sh)
 
-Для bash-скрипта может быть полезным:
-- передача переменных в python-скрипт из bash -- [пример](https://stackoverflow.com/a/71266282).
+Использование:
+```
+cat urls_and_dirs.txt | bash download_several.sh
+```
+
+Файл `urls_and_dirs.txt` содержит строки формата `https://.../page /home/user/dir`      
+URL и path разделены пробелом.
+
+Использованные материалы:
+- [bash-скрипт](download_several.sh): выборка адреса из строки -- см. [example 1](https://www.tutorialkart.com/bash-shell-scripting/bash-split-string/);
+- [bash-скрипт](download_several.sh): проверка существования директории и создание, при необходимости, перед вызовом python-скрипта -- [пример](https://www.cyberciti.biz/faq/howto-check-if-a-directory-exists-in-a-bash-shellscript/) конструкции `if ...`;
